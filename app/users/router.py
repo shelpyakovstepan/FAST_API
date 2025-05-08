@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Response, status
+from sqlalchemy.sql.functions import current_user
 
 from app.users.auth import get_password_hash, authenticate_user, create_access_token
 from app.users.dao import UserDAO
@@ -23,6 +24,7 @@ async def login_user(response: Response, user_data: SUsersAuth):
     current_user = await authenticate_user(user_data.email, user_data.password)
     if not current_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    access_token = create_access_token({"sub": str(4)})
+    print(current_user)
+    access_token = create_access_token({"sub": str(current_user.id)})
     response.set_cookie("access_token", access_token, httponly=True)
     return {"access_token": access_token}

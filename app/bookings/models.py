@@ -2,6 +2,8 @@ from sqlalchemy import Column, Integer, ForeignKey, Date, Computed
 
 from app.database import Base
 
+
+
 class Bookings(Base):
     __tablename__ = 'bookings'
 

@@ -15,7 +15,7 @@ import sys
 from os.path import abspath, dirname
 
 
-sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
