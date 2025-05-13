@@ -38,3 +38,8 @@ class UserIsNotPresentException(BookingException):
 class RoomCanNotBeBookedException(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail="Room can't be booked"
+
+class NotAvailableHotelsException(BookingException):
+    status_code=status.HTTP_409_CONFLICT
+    detail="Not available hotels1"
+
