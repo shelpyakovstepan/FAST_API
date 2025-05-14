@@ -24,8 +24,6 @@ class HotelsDAO(BaseDAO):
                 Hotels.location == location
             )
 
-
-
             get_rooms_id = select(Rooms.id).select_from(Rooms).where(
                 Rooms.hotel_id == get_hotel_id.c.id
             )

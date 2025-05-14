@@ -35,11 +35,18 @@ class IncorrectTokenFormatException(BookingException):
 class UserIsNotPresentException(BookingException):
     status_code=status.HTTP_401_UNAUTHORIZED
 
+
 class RoomCanNotBeBookedException(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail="Room can't be booked"
 
+
 class NotAvailableHotelsException(BookingException):
     status_code=status.HTTP_409_CONFLICT
-    detail="Not available hotels1"
+    detail="Not available hotels"
+
+
+class NotAvailableRoomsException(BookingException):
+    status_code=status.HTTP_409_CONFLICT
+    detail="Not available rooms"
 
