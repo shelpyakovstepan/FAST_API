@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Query, Depends
 from datetime import date
 from typing import Optional
-import uvicorn
 from pydantic import BaseModel
 from app.bookings.router import router as booking_router
 from app.users.router import router as user_router

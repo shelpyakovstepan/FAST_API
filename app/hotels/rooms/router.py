@@ -5,7 +5,7 @@ from app.hotels.rooms.dao import RoomsDAO
 from fastapi import APIRouter
 
 router = APIRouter(
-    prefix="/rooms",
+    prefix="/hotels",
     tags=["Комнаты"],
 )
 
@@ -15,4 +15,4 @@ async def get_rooms(hotel_id: int, date_from: date, date_to: date):
     rooms = await RoomsDAO.find_all(hotel_id, date_from, date_to)
     if not rooms:
         raise NotAvailableRoomsException
-    return rooms.scalars().all()
+    return rooms
