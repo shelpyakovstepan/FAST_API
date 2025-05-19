@@ -16,3 +16,5 @@ async def get_rooms(hotel_id: int, date_from: date, date_to: date):
     if not rooms:
         raise NotAvailableRoomsException
     return rooms
+
+

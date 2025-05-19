@@ -7,6 +7,7 @@ class BookingException(HTTPException):
     def __init__(self):
         super().__init__(status_code=self.status_code, detail=self.detail)
 
+
 class UserAlreadyExistsException(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail="User already exists"
@@ -49,4 +50,8 @@ class NotAvailableHotelsException(BookingException):
 class NotAvailableRoomsException(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail="Not available rooms"
+
+class NotBookingsException(BookingException):
+    status_code=status.HTTP_409_CONFLICT
+    detail="Not bookings"
 

@@ -38,24 +38,3 @@ class HotelGetArgs:
         self.has_spa = has_spa
         self.stars = stars
 
-@app.get("/hotels")
-def get_hotels(
-    search_hotels: HotelGetArgs = Depends()
-) -> list[SHotel]:
-
-    hotels = [
-        {
-            "address" : "Ул. Ленина, 1, Санкт-Петербург",
-            "name" : "Крутой отель",
-            "stars" : 5
-        }
-    ]
-
-    return hotels
-
-@app.post("/booking")
-def add_booking(booking: SBooking):
-    pass
-
-#if __name__ == "__main__":
-#    uvicorn.run("main:app", host="127.0.0.1", port=800, reload=True)

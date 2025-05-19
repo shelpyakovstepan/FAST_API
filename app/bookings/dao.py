@@ -6,6 +6,7 @@ from app.bookings.models import Bookings
 
 from app.dao.base import BaseDAO
 from app.database import async_session_maker
+from app.exceptions import NotBookingsException
 from app.hotels.rooms.models import Rooms
 
 
@@ -47,7 +48,6 @@ class BookingDAO(BaseDAO):
                     Rooms.quantity, booked_rooms.c.room_id
                 )
 
-            #print(rooms_left.compile(engine, compile_kwargs={"literal_binds": True}))
 
             rooms_left = await session.execute(get_rooms_left)
             rooms_left = rooms_left.scalar()
@@ -70,3 +70,67 @@ class BookingDAO(BaseDAO):
 
             else:
                 return None
+
+    @classmethod
+    async def find_all(
+        cls,
+        user_id: int
+    ):
+        async with async_session_maker() as session:
+            #get_all_users_bookings = select(Bookings).where(
+            #    Bookings.user_id == user_id
+            #).cte("get_all_users_bookings")
+
+            #get_all_rooms_parameters = select(
+            #    Rooms.image_id,
+            #    Rooms.name,
+            #    Rooms.description,
+            #    Rooms.services
+            #).select_from(Rooms).where(
+            #    Rooms.id == get_all_users_bookings.c.room_id
+            #)
+#
+            #users_bookings = select(Bookings).join(
+            #    get_all_users_bookings, get_all_rooms_parameters, isouter=True).where(
+            #    Rooms.id == get_all_users_bookings.c.room_id
+            #)
+
+
+
+           #users_bookings_result = await session.execute(query)
+           #users_bookings_result = users_bookings_result.scalars().all()
+
+           #if not users_bookings_result:
+           #    return NotBookingsException
+
+           #return users_bookings_result
+
+            user_bookings = select(Bookings).where(
+                Bookings.user_id == user_id
+            ).cte("user_bookings")
+
+            query = select(
+                user_bookings.c.room_id,
+                user_bookings.c.user_id,
+                user_bookings.c.date_from,
+                user_bookings.c.date_to,
+                user_bookings.c.price,
+                user_bookings.c.total_cost,
+                user_bookings.c.total_days,
+                Rooms.image_id,
+                Rooms.name,
+                Rooms.description,
+                Rooms.services
+            ).select_from(
+                user_bookings.join(
+                    Rooms,
+                    Rooms.id == user_bookings.c.room_id,
+                    isouter=True
+                )
+            ).order_by(user_bookings.c.date_from)
+
+            result = await session.execute(query)
+            bookings = result.mappings().all()
+
+            return bookings
+
