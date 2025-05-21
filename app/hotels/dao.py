@@ -30,6 +30,7 @@ class HotelsDAO(BaseDAO):
 
             for hotel in hotels:
                 rooms_left = 0
+                
                 get_rooms = select(Rooms).where(
                     Rooms.hotel_id == hotel.id
                 )
