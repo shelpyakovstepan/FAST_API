@@ -8,7 +8,7 @@ class SHotels(BaseModel):
     services: list
     rooms_quantity: int
     image_id: int
-
+    rooms_left: int
 
     class Config:
-        from_attributes = True
+        arbitrary_types_allowed = True

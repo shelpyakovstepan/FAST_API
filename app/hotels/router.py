@@ -1,10 +1,13 @@
+import asyncio
 from datetime import date
-from typing import Type, Any
 
 from fastapi import APIRouter
+from fastapi_cache.decorator import cache
+from pydantic.v1 import parse_obj_as
 
 from app.exceptions import NotAvailableHotelsException
 from app.hotels.dao import HotelsDAO
+from app.hotels.schemas import SHotels
 
 router = APIRouter(
     prefix="/hotels",
@@ -12,8 +15,11 @@ router = APIRouter(
 )
 
 @router.get("/{location}")
-async def get_hotels(location: str, date_from: date, date_to: date):
+@cache(expire=30)
+async def get_hotels(location: str, date_from: date, date_to: date) -> list[SHotels]:
+    await asyncio.sleep(3)
     hotels = await HotelsDAO.find_all(location, date_from, date_to)
+    #hotels_json = parse_obj_as(list[SHotels], hotels)
     if not hotels:
         raise NotAvailableHotelsException
     return hotels
