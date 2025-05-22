@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.bookings.router import router as booking_router
 from app.users.router import router as user_router
@@ -20,3 +21,16 @@ app.include_router(booking_router)
 app.include_router(pages_router)
 
 app.include_router(images_router)
+
+#origins = [
+#    домен
+#]
+#
+#app.add_middleware(
+#    CORSMiddleware,
+#    allow_origins=origins,
+#    allow_credentials=True,
+#    allow_methods=["GET", "POST", "PUT", "DELETE", "PATCH", "PUT"],
+#    allow_headers=["Set-Cookie", "Content-Type", "Authorization", "Access-Control-Allow-Headers",
+#                   "Access-Control-Allow-Origin"],
+#)
