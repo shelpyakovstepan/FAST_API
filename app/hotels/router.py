@@ -19,7 +19,6 @@ router = APIRouter(
 async def get_hotels(location: str, date_from: date, date_to: date) -> list[SHotels]:
     await asyncio.sleep(3)
     hotels = await HotelsDAO.find_all(location, date_from, date_to)
-    #hotels_json = parse_obj_as(list[SHotels], hotels)
     if not hotels:
         raise NotAvailableHotelsException
     return hotels

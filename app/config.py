@@ -14,7 +14,15 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ALGORITHM: str
 
-    #model_config = SettingsConfigDict( case_sensitive=True, env_file=abs_path_env)
+    SMTP_HOST: str
+    SMTP_PORT: int
+    SMTP_USER: str
+    SMTP_PASS: str
+
+    REDIS_HOST: str
+    REDIS_PORT: int
+
+
     class Config:
         env_file = ".env"
 

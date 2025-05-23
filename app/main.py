@@ -12,6 +12,7 @@ from fastapi_cache.decorator import cache
 from redis import asyncio as aioredis
 
 from app.bookings.router import router as booking_router
+from app.config import settings
 from app.users.router import router as user_router
 from app.hotels.router import router as hotels_router
 from app.hotels.rooms.router import router as hotels_room_router
@@ -22,7 +23,7 @@ from app.images.router import router as images_router
 
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    redis = aioredis.from_url("redis://localhost:6379")
+    redis = aioredis.from_url(f"redis://{settings.REDIS_HOST}:{settings.REDIS_PORT}")
     FastAPICache.init(RedisBackend(redis), prefix="cache")
     yield
 
@@ -50,3 +51,5 @@ app.include_router(images_router)
 #    allow_headers=["Set-Cookie", "Content-Type", "Authorization", "Access-Control-Allow-Headers",
 #                   "Access-Control-Allow-Origin"],
 #)
+
+#celery -A app.tasks.celery_app:celery worker --loglevel=INFO --pool=solo
