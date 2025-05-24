@@ -52,4 +52,8 @@ app.include_router(images_router)
 #                   "Access-Control-Allow-Origin"],
 #)
 
+
+#команды для запуска
 #celery -A app.tasks.celery_app:celery worker --loglevel=INFO --pool=solo
+#uvicorn app.main:app --reload
+#celery -A app.tasks.celery_app:celery flower
