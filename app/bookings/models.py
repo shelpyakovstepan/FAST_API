@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, ForeignKey, Date, Computed
+from sqlalchemy.orm import relationship
 
 from app.database import Base
 
@@ -18,3 +19,9 @@ class Bookings(Base):
 
     class Config:
         arbitrary_types_allowed = True
+
+    user = relationship("Users", back_populates="booking")
+    rooms = relationship("Rooms", back_populates="booking")
+
+    def __str__(self):
+        return f"{self.id}"

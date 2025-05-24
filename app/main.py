@@ -10,9 +10,13 @@ from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
 
 from redis import asyncio as aioredis
+from sqladmin import Admin
 
+from app.admin.auth import authentication_backend
+from app.admin.views import UsersAdmin, BookingsAdmin, HotelsAdmin, RoomsAdmin
 from app.bookings.router import router as booking_router
 from app.config import settings
+from app.database import engine
 from app.users.router import router as user_router
 from app.hotels.router import router as hotels_router
 from app.hotels.rooms.router import router as hotels_room_router
@@ -38,6 +42,15 @@ app.include_router(booking_router)
 app.include_router(pages_router)
 
 app.include_router(images_router)
+
+
+admin = Admin(app, engine, authentication_backend=authentication_backend)
+
+
+admin.add_view(UsersAdmin)
+admin.add_view(BookingsAdmin)
+admin.add_view(HotelsAdmin)
+admin.add_view(RoomsAdmin)
 
 #origins = [
 #    домен
