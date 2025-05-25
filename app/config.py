@@ -1,10 +1,6 @@
 from typing import Literal
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
-import os
-
-#DOTENV = os.path.join(os.path.dirname(__file__), ".env")
-#abs_path_env = os.path.abspath(".env")
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):

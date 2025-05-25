@@ -1,0 +1,135 @@
+[
+  {
+    "room_id": 1,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 245
+  },
+  {
+    "room_id": 1,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 245
+  },
+  {
+    "room_id": 1,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 24500
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 22450
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 22450
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 224
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 22450
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 22450
+  },
+  {
+    "room_id": 2,
+    "user_id": 1,
+    "date_from": "2023-06-15",
+    "date_to": "2023-06-30",
+    "price": 22450
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  },
+  {
+    "room_id": 5,
+    "user_id": 2,
+    "date_from": "2024-06-08",
+    "date_to": "2024-06-09",
+    "price": 7080
+  }
+]
