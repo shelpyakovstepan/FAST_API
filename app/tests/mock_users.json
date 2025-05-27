@@ -1,12 +1,10 @@
 [
     {
       "email": "user@example.com",
-      "hashed_password": "$2b$12$NySmKfZ9whurTk56IZ2umO8EULUgd5SjzqmIafp5lmNnzV8oB5iB2",
-      "id": 1
+      "hashed_password": "$2b$12$NySmKfZ9whurTk56IZ2umO8EULUgd5SjzqmIafp5lmNnzV8oB5iB2"
     },
     {
       "email": "step3210shelpyakov@gmail.com",
-      "hashed_password": "$2b$12$tqh7Eee6IEsRmxyHAjyMQOh5.qe9vQvo8fBFV5RuOSzEaE5pPQSTW",
-      "id": 2
+      "hashed_password": "$2b$12$tqh7Eee6IEsRmxyHAjyMQOh5.qe9vQvo8fBFV5RuOSzEaE5pPQSTW"
     }
 ]

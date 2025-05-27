@@ -2,6 +2,7 @@ import asyncio
 import json
 from datetime import datetime
 
+import httpx
 import pytest
 from sqlalchemy import insert
 
@@ -11,6 +12,11 @@ from app.database import engine, Base, async_session_maker
 from app.hotels.models import Hotels
 from app.hotels.rooms.models import Rooms
 from app.users.models import Users
+
+from fastapi.testclient import TestClient
+from httpx import AsyncClient
+from app.main import app as fastapi_app
+
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -48,10 +54,26 @@ async def prepare_database():
 
         await session.commit()
 
+@pytest.fixture(scope="function")
+async def ac():
+    async with AsyncClient(base_url="http://test", transport=httpx.ASGITransport(app=fastapi_app)) as ac:
+        yield ac
 
 @pytest.fixture(scope="session")
-def event_loop():
-    policy = asyncio.get_event_loop_policy()
-    loop = policy.new_event_loop()
-    yield loop
-    loop.close()
+async def authenticated_ac():
+    async with AsyncClient(base_url="http://test", transport=httpx.ASGITransport(app=fastapi_app)) as ac:
+        await ac.post("/auth/login", json={
+            "email": "user@example.com",
+            "password": "parol"
+        })
+        assert ac.cookies["access_token"]
+        yield ac
+
+
+
+#@pytest.fixture(scope="session")
+#def event_loop():
+#    policy = asyncio.get_event_loop_policy()
+#    loop = policy.new_event_loop()
+#    yield loop
+#    loop.close()

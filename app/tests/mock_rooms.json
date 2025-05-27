@@ -5,7 +5,6 @@
     "price": 24500,
     "quantity": 5,
     "image_id": 7,
-    "id": 1,
     "description": "Номер с видом на горы.",
     "services": [
       "Бесплатный Wi‑Fi",
@@ -18,7 +17,6 @@
     "price": 22450,
     "quantity": 10,
     "image_id": 8,
-    "id": 2,
     "description": "Шикарный номер с видом на озеро",
     "services": [
       "Бесплатный Wi‑Fi",
@@ -31,7 +29,6 @@
     "price": 4570,
     "quantity": 15,
     "image_id": 9,
-    "id": 3,
     "description": "Номер с видом на океан.",
     "services": []
   },
@@ -41,7 +38,6 @@
     "price": 4350,
     "quantity": 8,
     "image_id": 10,
-    "id": 4,
     "description": "Номер с видом на гору Тухтала.",
     "services": []
   },
@@ -51,7 +47,6 @@
     "price": 7080,
     "quantity": 20,
     "image_id": 11,
-    "id": 5,
     "description": "Красивый номер для всей семьи.",
     "services": [
       "Холодильник"
@@ -63,7 +58,6 @@
     "price": 9815,
     "quantity": 10,
     "image_id": 12,
-    "id": 6,
     "description": "Красивый номер для молодоженов.",
     "services": []
   },
@@ -74,7 +68,6 @@
     "price": 4300,
     "quantity": 20,
     "image_id": 13,
-    "id": 7,
     "description": "Стандартный номер для стандартных людей.",
     "services": [
       "Бесплатный Wi‑Fi",
@@ -87,7 +80,6 @@
     "price": 4700,
     "quantity": 35,
     "image_id": 14,
-    "id": 8,
     "description": "Номер для бурной вечеринки вдвоем.",
     "services": [
       "Бесплатный Wi‑Fi",
@@ -102,7 +94,6 @@
     "price": 5000,
     "quantity": 15,
     "image_id": 15,
-    "id": 9,
     "description": "Вкусный завтрак и мягкий матрас - рецепт хорошего отдыха.",
     "services": []
   },
@@ -112,7 +103,6 @@
     "price": 8000,
     "quantity": 7,
     "image_id": 16,
-    "id": 10,
     "description": "Полулюкс - он и есть полулюкс, шик и блеск.",
     "services": []
   }
