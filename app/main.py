@@ -74,4 +74,4 @@ admin.add_view(RoomsAdmin)
 
 #celery -A app.tasks.celery_app:celery flower
 
-#pytest -v -s app/tests/integration_tests/hotels_tests/api_tests.py
+#pytest -v -s app/tests/integration_tests/hotels_tests/tests_bookings_api.py
