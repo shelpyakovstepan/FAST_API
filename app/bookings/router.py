@@ -6,7 +6,7 @@ from pydantic import TypeAdapter
 
 from app.bookings.dao import BookingDAO
 from app.bookings.schemas import SBookings
-from app.exceptions import RoomCanNotBeBookedException, NotBookingsException
+from app.exceptions import RoomCanNotBeBookedException, NotBookingsException, RoomCanNotBeBookedIncorrectDaysException
 from app.tasks.tasks import send_booking_confirmation_email
 
 from app.users.dependencies import get_current_user
@@ -30,6 +30,11 @@ async def add_booking(
     room_id: int, date_from: date, date_to : date,
     user: Users = Depends(get_current_user)
 ):
+
+    delta = date_to - date_from
+    if delta.days <= 0 or delta.days > 30:
+        raise RoomCanNotBeBookedIncorrectDaysException
+
     booking = await BookingDAO.add(user.id, room_id, date_from, date_to)
     if not booking:
         raise RoomCanNotBeBookedException

@@ -67,6 +67,11 @@ admin.add_view(RoomsAdmin)
 
 
 #команды для запуска
+
 #celery -A app.tasks.celery_app:celery worker --loglevel=INFO --pool=solo
+
 #uvicorn app.main:app --reload
+
 #celery -A app.tasks.celery_app:celery flower
+
+#pytest -v -s app/tests/integration_tests/hotels_tests/api_tests.py

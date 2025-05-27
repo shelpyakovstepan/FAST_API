@@ -5,7 +5,7 @@ from fastapi import APIRouter
 from fastapi_cache.decorator import cache
 from pydantic.v1 import parse_obj_as
 
-from app.exceptions import NotAvailableHotelsException
+from app.exceptions import NotAvailableHotelsException, NotHotelsIncorrectDaysException
 from app.hotels.dao import HotelsDAO
 from app.hotels.schemas import SHotels
 
@@ -15,8 +15,13 @@ router = APIRouter(
 )
 
 @router.get("/{location}")
-@cache(expire=30)
-async def get_hotels(location: str, date_from: date, date_to: date) -> list[SHotels]:
+#@cache(expire=30)
+async def get_hotels_by_location(location: str, date_from: date, date_to: date) -> list[SHotels]:
+
+    delta = date_to - date_from
+    if delta.days <= 0 or delta.days > 30:
+        raise NotHotelsIncorrectDaysException
+
     hotels = await HotelsDAO.find_all(location, date_from, date_to)
     if not hotels:
         raise NotAvailableHotelsException

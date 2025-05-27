@@ -18,6 +18,7 @@ async def test_register_user(email, password, status_code, ac: AsyncClient):
 
     assert response.status_code == status_code
 
+
 @pytest.mark.parametrize("email,password,status_code", [
     ("step3210shelpyakov@gmail.com", "kolobok", 200),
     ("user@example.com", "parol", 200),

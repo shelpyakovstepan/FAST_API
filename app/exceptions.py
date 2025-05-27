@@ -55,3 +55,14 @@ class NotBookingsException(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail="Not bookings"
 
+class RoomCanNotBeBookedIncorrectDaysException(BookingException):
+    status_code=status.HTTP_400_BAD_REQUEST
+    detail="Room can't be booked, because you write incorrect days"
+
+class NotHotelsIncorrectDaysException(BookingException):
+    status_code=status.HTTP_400_BAD_REQUEST
+    detail="Not available hotels, because you write incorrect days"
+
+class NotRoomsIncorrectDaysException(BookingException):
+    status_code=status.HTTP_400_BAD_REQUEST
+    detail="Not available rooms, because you write incorrect days"

@@ -13,7 +13,6 @@ from app.hotels.models import Hotels
 from app.hotels.rooms.models import Rooms
 from app.users.models import Users
 
-from fastapi.testclient import TestClient
 from httpx import AsyncClient
 from app.main import app as fastapi_app
 

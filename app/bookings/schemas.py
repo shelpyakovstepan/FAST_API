@@ -13,5 +13,4 @@ class SBookings(BaseModel):
     total_days: int
 
     class Config:
-        #arbitrary_types_allowed=True
         from_attributes=True

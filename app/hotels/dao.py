@@ -26,8 +26,6 @@ class HotelsDAO(BaseDAO):
 
             hotels = await session.execute(get_hotels)
             hotels = hotels.scalars().all()
-
-
             for hotel in hotels:
                 rooms_left = 0
                 
