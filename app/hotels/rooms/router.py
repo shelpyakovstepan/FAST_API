@@ -1,8 +1,10 @@
 from datetime import date
 
-from app.exceptions import NotAvailableRoomsException, NotRoomsIncorrectDaysException
-from app.hotels.rooms.dao import RoomsDAO
 from fastapi import APIRouter
+
+from app.exceptions import (NotAvailableRoomsException,
+                            NotRoomsIncorrectDaysException)
+from app.hotels.rooms.dao import RoomsDAO
 
 router = APIRouter(
     prefix="/hotels",

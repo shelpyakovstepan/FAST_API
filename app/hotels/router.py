@@ -5,7 +5,8 @@ from fastapi import APIRouter
 from fastapi_cache.decorator import cache
 from pydantic.v1 import parse_obj_as
 
-from app.exceptions import NotAvailableHotelsException, NotHotelsIncorrectDaysException
+from app.exceptions import (NotAvailableHotelsException,
+                            NotHotelsIncorrectDaysException)
 from app.hotels.dao import HotelsDAO
 from app.hotels.schemas import SHotels
 
