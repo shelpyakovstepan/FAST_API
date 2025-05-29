@@ -31,3 +31,18 @@ async def test_add_and_get_bookings(room_id, date_from, date_to,
     response = await authenticated_ac.get("/bookings")
 
     assert len(response.json()) == booked_rooms
+
+
+
+async def test_get_and_delete_bookings(authenticated_ac: AsyncClient):
+    bookings = await authenticated_ac.get("/bookings")
+
+    for booking in bookings.json():
+        booking_id = booking["id"]
+        await authenticated_ac.delete(f"/bookings/{booking_id}")
+
+    response = await authenticated_ac.get("/bookings")
+
+    assert response.status_code == 409
+
+

@@ -109,6 +109,7 @@ class BookingDAO(BaseDAO):
             ).cte("user_bookings")
 
             query = select(
+                user_bookings.c.id,
                 user_bookings.c.room_id,
                 user_bookings.c.user_id,
                 user_bookings.c.date_from,
