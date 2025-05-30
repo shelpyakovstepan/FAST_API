@@ -1,9 +1,7 @@
-import asyncio
 from datetime import date
 
 from fastapi import APIRouter
 from fastapi_cache.decorator import cache
-from pydantic.v1 import parse_obj_as
 
 from app.exceptions import (NotAvailableHotelsException,
                             NotHotelsIncorrectDaysException)
