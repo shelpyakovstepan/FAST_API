@@ -42,7 +42,7 @@ async def add_booking(
 
     booking_dict = parse_obj_as(SBookings, booking).model_dump()
 
-    #send_booking_confirmation_email.delay(booking_dict, user.email)
+    send_booking_confirmation_email.delay(booking_dict, user.email)
 
     return booking_dict
 

@@ -14,7 +14,7 @@ router = APIRouter(
 )
 
 @router.get("/{location}")
-#@cache(expire=30)
+@cache(expire=30)
 async def get_hotels_by_location(location: str, date_from: date, date_to: date) -> list[SHotels]:
 
     delta = date_to - date_from
