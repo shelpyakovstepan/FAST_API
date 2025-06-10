@@ -1,8 +1,12 @@
-
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+
+from app.users.models import Users
+from app.hotels.models import Hotels
+from app.hotels.rooms.models import Rooms
+from app.bookings.models import Bookings
 
 from alembic import context
 from app.database import Base, DATABASE_URL
@@ -74,6 +78,20 @@ def run_migrations_online() -> None:
 
         with context.begin_transaction():
             context.run_migrations()
+
+   # for _ in range(10):
+   #     try:
+   #         connectable = engine_from_config(
+   #             config.get_section(config.config_ini_section),
+   #             prefix="sqlalchemy.",
+   #             poolclass=pool.NullPool,
+   #         )
+   #         with connectable.connect() as connection:
+   #             context.configure(connection=connection, target_metadata=target_metadata)
+   #             context.run_migrations()
+   #         break
+   #     except:
+   #         time.sleep(5)
 
 
 if context.is_offline_mode():

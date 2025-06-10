@@ -45,6 +45,6 @@ services:
       - .env-non-dev
     depends_on:
       - redis
-    command: [ "/booking/docker/celery.sh", "flower" ]
+    command: ["/booking/docker/celery.sh", "flower"]
     ports:
       - 5555:5555
